@@ -1,0 +1,38 @@
+[
+  {
+    "idFlujo": "1",
+    "fecha": "03/19/2022",
+    "categoria": {
+      "idCategoria": "1",
+      "clasificacion": "clasificacion",
+      "categoria": " ejemplo1",
+      "subCategoria": "ejem1"
+    },
+    "descripcion": "descripcion",
+    "monto": "1500.0"
+  },
+  {
+    "idFlujo": "2",
+    "fecha": "03/19/2022",
+    "categoria": {
+      "idCategoria": "1",
+      "clasificacion": "clasificacion",
+      "categoria": " ejemplo1",
+      "subCategoria": "ejem1"
+    },
+    "descripcion": "descripcion",
+    "monto": "1500.0"
+  },
+  {
+    "idFlujo": "3",
+    "fecha": "03/19/2022",
+    "categoria": {
+      "idCategoria": "1",
+      "clasificacion": "clasificacion",
+      "categoria": " ejemplo1",
+      "subCategoria": "ejem1"
+    },
+    "descripcion": "descripcion",
+    "monto": "1500.0"
+  }
+]

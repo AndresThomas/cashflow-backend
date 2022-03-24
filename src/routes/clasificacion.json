@@ -1,0 +1,18 @@
+[
+  {
+    "idClasificacion": "0",
+    "clasificacion": "Seleccione un valor"
+  },
+  {
+    "idClasificacion": "1",
+    "clasificacion": "GAO"
+  },
+  {
+    "idClasificacion": "2",
+    "clasificacion": "Ingreso"
+  },
+  {
+    "idClasificacion": "3",
+    "clasificacion": "Costo-Venta"
+  }
+]
