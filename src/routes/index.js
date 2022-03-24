@@ -56,17 +56,20 @@ router.get("/reportes", (request, response) => {
 
 router.post("/categorias", (request, response) => {
   const { clasificacion, categoria, subCategoria } = request.body;
+  console.log(request.body);
   if (clasificacion && categoria && subCategoria) {
     const newCategoria = { ...request.body };
+    console.log('Aproved');
     conexion.query(
       "Insert into Categoria (categoria,clasificacion,subCategoria) values (?,?,?)",
       [categoria, clasificacion, subCategoria],
       function (error, results, fields) {
+        response.json(results);
         console.log(request.body,' post');
         if (error) {
           throw error;
         }
-        response.json(results);
+        
       }
     );
   }
@@ -74,8 +77,10 @@ router.post("/categorias", (request, response) => {
 
 router.post("/flujo", (request, response) => {
   const { fecha, tipo, categoria, descripcion, cantidad } = request.body;
+  console.log(request.body);
   if (fecha && tipo && categoria && descripcion && cantidad) {
     const newFlujo = { ...request.body };
+    console.log('Aproved');
     conexion.query(
       "Insert into FlujoEfectivo (fecha,categoria,descripcion,monto) values (?,?,?,?)",
       [fecha, categoria, descripcion, cantidad],
@@ -89,8 +94,10 @@ router.post("/flujo", (request, response) => {
 });
 router.post("/indicadores", (request, response) => {
   const {  tipoIndicador, numeroSemana,razonSocial,monto, fecha } = request.body;
+  console.log(request.body);
   if (fecha && tipoIndicador && numeroSemana && razonSocial && monto) {
     const newInd = { ...request.body };
+    console.log('Aproved');
     conexion.query(
       "Insert into IndicadoresDinero (tipoIndicador,numeroSemana,razonSocial,monto,fecha) values (?,?,?,?,?)",
       [tipoIndicador, numeroSemana, razonSocial, monto,fecha],
