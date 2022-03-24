@@ -100,7 +100,13 @@ router.post("/indicadores", (request, response) => {
   console.log(request.body);
   conexion.query(
     "Insert into IndicadoresDinero (tipoIndicador,numeroSemana,razonSocial,monto,fecha) values (?,?,?,?,?)",
-    [newInd.indice.tipoIndicador, newInd.indice.numeroSemana,newInd.indice. razonSocial, newInd.indice.monto, newInd.indice.fecha],
+    [
+      newInd.tipoIndicador,
+      newInd.numeroSemana,
+      newInd.razonSocial,
+      newInd.monto,
+      newInd.fecha,
+    ],
     function (error, results, fields) {
       console.log(request.body, " post");
       if (error) throw error;
