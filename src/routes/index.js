@@ -78,7 +78,7 @@ router.post("/flujo", (request, response) => {
   console.log(request.body);
   
   const newFlujo = { ...request.body };
-  console.log(newFlujo.fecha);
+  console.log(newFlujo.flujo.fecha);
   console.log("Aproved");
   conexion.query(
     "Insert into FlujoEfectivo (fecha,categoria,descripcion,monto) values (?,?,?,?)",
