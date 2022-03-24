@@ -83,7 +83,7 @@ router.post("/flujo", (request, response) => {
   conexion.query(
     "Insert into FlujoEfectivo (fecha,categoria,descripcion,monto) values (?,?,?,?)",
     [
-      newFlujo.fecha,
+      newFlujo.flujo.fecha,
       newFlujo.flujo.categoria,
       newFlujo.flujo.descripcion,
       newFlujo.flujo.cantidad,
