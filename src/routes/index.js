@@ -55,7 +55,6 @@ router.get("/reportes", (request, response) => {
 //router post
 
 router.post("/categorias", (request, response) => {
-  console.log(request.body);
   const { clasificacion, categoria, subCategoria } = request.body;
   if (clasificacion && categoria && subCategoria) {
     const newCategoria = { ...request.body };
@@ -63,10 +62,11 @@ router.post("/categorias", (request, response) => {
       "Insert into Categoria (categoria,clasificacion,subCategoria) values (?,?,?)",
       [categoria, clasificacion, subCategoria],
       function (error, results, fields) {
-        console.log(request.body);
+        console.log(request.body,' post');
         if (error) {
           throw error;
         }
+        response.json(results);
       }
     );
   }
@@ -82,6 +82,7 @@ router.post("/flujo", (request, response) => {
       function (error, results, fields) {
         console.log(request.body,' post');
         if (error) throw error;
+        response.json(results);
       }
     );
   }
