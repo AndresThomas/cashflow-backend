@@ -60,9 +60,9 @@ router.post("/categorias", (request, response) => {
   conexion.query(
     "Insert into Categoria (categoria,clasificacion,subCategoria) values (?,?,?)",
     [
-      newCategoria.categoria.categoria,
-      newCategoria.categoria.clasificacion,
-      newCategoria.categoria.subCategoria,
+      newCategoria.categoria,
+      newCategoria.clasificacion,
+      newCategoria.subCategoria,
     ],
     function (error, results, fields) {
       response.json(results);
