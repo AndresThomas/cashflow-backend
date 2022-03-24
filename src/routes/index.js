@@ -55,23 +55,23 @@ router.get("/reportes", (request, response) => {
 //router post
 
 router.post("/categorias", (request, response) => {
-  const { clasificacion, categoria, subCategoria } = request.body;
   console.log(request.body);
-  if (clasificacion && categoria && subCategoria) {
-    const newCategoria = { ...request.body };
-    console.log("Aproved");
-    conexion.query(
-      "Insert into Categoria (categoria,clasificacion,subCategoria) values (?,?,?)",
-      [categoria, clasificacion, subCategoria],
-      function (error, results, fields) {
-        response.json(results);
-        console.log(request.body, " post");
-        if (error) {
-          throw error;
-        }
+  const newCategoria = { ...request.body };
+  conexion.query(
+    "Insert into Categoria (categoria,clasificacion,subCategoria) values (?,?,?)",
+    [
+      newCategoria.categoria.categoria,
+      newCategoria.categoria.clasificacion,
+      newCategoria.categoria.subCategoria,
+    ],
+    function (error, results, fields) {
+      response.json(results);
+      console.log(request.body, " post");
+      if (error) {
+        throw error;
       }
-    );
-  }
+    }
+  );
 });
 
 router.post("/flujo", (request, response) => {
@@ -96,22 +96,17 @@ router.post("/flujo", (request, response) => {
   );
 });
 router.post("/indicadores", (request, response) => {
-  const { tipoIndicador, numeroSemana, razonSocial, monto, fecha } =
-    request.body;
+  const newInd = { ...request.body };
   console.log(request.body);
-  if (fecha && tipoIndicador && numeroSemana && razonSocial && monto) {
-    const newInd = { ...request.body };
-    console.log("Aproved");
-    conexion.query(
-      "Insert into IndicadoresDinero (tipoIndicador,numeroSemana,razonSocial,monto,fecha) values (?,?,?,?,?)",
-      [tipoIndicador, numeroSemana, razonSocial, monto, fecha],
-      function (error, results, fields) {
-        console.log(request.body, " post");
-        if (error) throw error;
-        response.json(results);
-      }
-    );
-  }
+  conexion.query(
+    "Insert into IndicadoresDinero (tipoIndicador,numeroSemana,razonSocial,monto,fecha) values (?,?,?,?,?)",
+    [newInd.indice.tipoIndicador, newInd.indice.numeroSemana,newInd.indice. razonSocial, newInd.indice.monto, newInd.indice.fecha],
+    function (error, results, fields) {
+      console.log(request.body, " post");
+      if (error) throw error;
+      response.json(results);
+    }
+  );
 });
 
 module.exports = router;
