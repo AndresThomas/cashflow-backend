@@ -25,7 +25,7 @@ router.get("/categorias", (request, response) => {
 });
 router.get("/flujo", (request, response) => {
   conexion.query(
-    "SELECT * FROM FlujoEfectivo INNER JOIN Categoria on idCategoria",
+    "SELECT * FROM FlujoEfectivo INNER JOIN Categoria on FlujoEfectivo.categoria=Categoria.idCategoria",
     function (error, results, fields) {
       if (error) {
         throw error;
