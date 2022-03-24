@@ -87,5 +87,20 @@ router.post("/flujo", (request, response) => {
     );
   }
 });
+router.post("/indicadores", (request, response) => {
+  const {  tipoIndicador, numeroSemana,razonSocial,monto, fecha } = request.body;
+  if (fecha && tipoIndicador && numeroSemana && razonSocial && monto) {
+    const newInd = { ...request.body };
+    conexion.query(
+      "Insert into IndicadoresDinero (tipoIndicador,numeroSemana,razonSocial,monto,fecha) values (?,?,?,?)",
+      [tipoIndicador, numeroSemana, razonSocial, monto,fecha],
+      function (error, results, fields) {
+        console.log(request.body,' post');
+        if (error) throw error;
+        response.json(results);
+      }
+    );
+  }
+});
 
 module.exports = router;
