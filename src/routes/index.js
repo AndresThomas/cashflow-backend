@@ -78,6 +78,11 @@ router.post("/categorias", (request, response) => {
 router.post("/flujo", (request, response) => {
   const { fecha, tipo, categoria, descripcion, cantidad } = request.body;
   console.log(request.body);
+  console.log(fecha);
+  console.log(tipo);
+  console.log(categoria);
+  console.log(descripcion);
+  console.log(cantidad);
   if (fecha && tipo && categoria && descripcion && cantidad) {
     const newFlujo = { ...request.body };
     console.log('Aproved');
