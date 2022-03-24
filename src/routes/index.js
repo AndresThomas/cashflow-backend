@@ -89,9 +89,12 @@ router.post("/flujo", (request, response) => {
       newFlujo.flujo.cantidad,
     ],
     function (error, results, fields) {
-      console.log(request.body, " post");
-      if (error) throw error;
-      response.json(results);
+      if (error) {
+        throw error;
+      } else {
+        console.log(request.body, " post");
+        response.json(results);
+      }
     }
   );
 });
