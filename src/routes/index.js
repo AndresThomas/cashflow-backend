@@ -92,7 +92,7 @@ router.post("/indicadores", (request, response) => {
   if (fecha && tipoIndicador && numeroSemana && razonSocial && monto) {
     const newInd = { ...request.body };
     conexion.query(
-      "Insert into IndicadoresDinero (tipoIndicador,numeroSemana,razonSocial,monto,fecha) values (?,?,?,?)",
+      "Insert into IndicadoresDinero (tipoIndicador,numeroSemana,razonSocial,monto,fecha) values (?,?,?,?,?)",
       [tipoIndicador, numeroSemana, razonSocial, monto,fecha],
       function (error, results, fields) {
         console.log(request.body,' post');
