@@ -80,7 +80,7 @@ router.post("/flujo", (request, response) => {
       "Insert into FlujoEfectivo (fecha,categoria,descripcion,monto) values (?,?,?,?)",
       [fecha, categoria, descripcion, cantidad],
       function (error, results, fields) {
-        console.log(request.body);
+        console.log(request.body,' post');
         if (error) throw error;
       }
     );
