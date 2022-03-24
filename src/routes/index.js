@@ -11,20 +11,6 @@ const conexion = mysql.createConnection({
   port: configBD.Portnumber,
 });
 
-function connect() {
-  conexion.connect(function (error) {
-    if (error) {
-      throw error;
-    }
-    console.log("Connection was created successfully");
-  });
-}
-
-function closeConnection() {
-  conexion.end();
-  console.log("Connection was closed successfully");
-}
-
 //routes getters
 router.get("/clasificacion", (request, response) => {
   response.json(clasificacionData);
@@ -77,27 +63,28 @@ router.post("/categorias", (request, response) => {
       "Insert into Categoria (categoria,clasificacion,subCategoria) values (?,?,?)",
       [categoria, clasificacion, subCategoria],
       function (error, results, fields) {
-        if (error) throw error;
+        console.log(request.body);
+        if (error) {
+          throw error;
+        }
       }
     );
   }
-  return response.send("Wrong request: ", request.body);
 });
 
 router.post("/flujo", (request, response) => {
-
   const { fecha, tipo, categoria, descripcion, cantidad } = request.body;
   if (fecha && tipo && categoria && descripcion && cantidad) {
     const newFlujo = { ...request.body };
     conexion.query(
       "Insert into FlujoEfectivo (fecha,categoria,descripcion,monto) values (?,?,?,?)",
-      [fecha, categoria,descripcion,cantidad],
+      [fecha, categoria, descripcion, cantidad],
       function (error, results, fields) {
+        console.log(request.body);
         if (error) throw error;
       }
     );
   }
-  return response.send("Wrong request: ", request.body);
 });
 
 module.exports = router;
